@@ -40,4 +40,9 @@ public class AddRemoveElementsPage extends BasePage {
         List<WebElement> deleteButtons = getDriver().findElements(By.className("added-manually"));
         return deleteButtons.size();
     }
+
+    public AddRemoveElementsPage clickDeleteButton() {
+        deleteButton.click();
+        return this;
+    }
 }

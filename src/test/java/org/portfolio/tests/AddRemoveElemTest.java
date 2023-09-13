@@ -11,7 +11,7 @@ public class AddRemoveElemTest extends BaseTest {
     @Test
     public void testAddElement() {
         AddRemoveElementsPage addRemoveElementsPage = new WelcomePage(getDriver())
-                .clickAddRemoveElemLink()
+                .clickAddRemoveElemPageLink()
                 .clickAddElementButton();
 
         Assert.assertTrue(addRemoveElementsPage.isDeleteButtonPresent());
@@ -21,9 +21,19 @@ public class AddRemoveElemTest extends BaseTest {
     @Test
     public void testAddTenElements() {
         AddRemoveElementsPage addRemoveElementsPage = new WelcomePage(getDriver())
-                .clickAddRemoveElemLink()
+                .clickAddRemoveElemPageLink()
                 .clickAddElementButton10();
 
         Assert.assertEquals(addRemoveElementsPage.numberOfDeleteButtons(), 10);
+    }
+
+    @Test
+    public void testDeleteElement() {
+        AddRemoveElementsPage addRemoveElementsPage = new WelcomePage(getDriver())
+                .clickAddRemoveElemPageLink()
+                .clickAddElementButton()
+                .clickDeleteButton();
+
+        Assert.assertEquals(addRemoveElementsPage.numberOfDeleteButtons(), 0);
     }
 }

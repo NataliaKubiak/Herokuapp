@@ -8,14 +8,21 @@ import org.portfolio.models.base.BasePage;
 public class WelcomePage extends BasePage {
 
     @FindBy(xpath = "//a[@href='/add_remove_elements/']")
-    private WebElement addRemoveElementsLink;
+    private WebElement addRemoveElementsPageLink;
+    @FindBy(linkText = "Broken Images")
+    private WebElement brokenImagesPageLink;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
     }
 
-    public AddRemoveElementsPage clickAddRemoveElemLink() {
-        addRemoveElementsLink.click();
+    public AddRemoveElementsPage clickAddRemoveElemPageLink() {
+        addRemoveElementsPageLink.click();
         return new AddRemoveElementsPage(getDriver());
+    }
+
+    public BrokenImagesPage clickBrokenImagesPageLink() {
+        brokenImagesPageLink.click();
+        return new BrokenImagesPage(getDriver());
     }
 }
