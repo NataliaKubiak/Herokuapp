@@ -11,6 +11,10 @@ public class WelcomePage extends BasePage {
     private WebElement addRemoveElementsPageLink;
     @FindBy(linkText = "Broken Images")
     private WebElement brokenImagesPageLink;
+    @FindBy(linkText = "Checkboxes")
+    private WebElement checkboxesPageLink;
+    @FindBy(linkText = "Dropdown")
+    private WebElement dropdownPageLink;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
@@ -24,5 +28,15 @@ public class WelcomePage extends BasePage {
     public BrokenImagesPage clickBrokenImagesPageLink() {
         brokenImagesPageLink.click();
         return new BrokenImagesPage(getDriver());
+    }
+
+    public CheckboxesPage clickCheckboxesPageLink() {
+        checkboxesPageLink.click();
+        return new CheckboxesPage(getDriver());
+    }
+
+    public DropdownPage clickDropdownPageLink() {
+        dropdownPageLink.click();
+        return new DropdownPage(getDriver());
     }
 }
