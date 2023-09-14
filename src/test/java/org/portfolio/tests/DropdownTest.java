@@ -17,12 +17,42 @@ public class DropdownTest extends BaseTest {
     }
 
     @Test
-    public void testIsOption1Selected() {
+    public void testIsOption1SelectedSELECT() {
         boolean isOption1Selected = new WelcomePage(getDriver())
                 .clickDropdownPageLink()
-                .chooseOption1FromDropdownMenu()
+                .chooseOption1FromDropdownMenuSELECT()
                 .isOption1Selected();
 
         Assert.assertTrue(isOption1Selected);
+    }
+
+    @Test
+    public void testIsOption1SelectedACTIONS() {
+        boolean isOption1Selected = new WelcomePage(getDriver())
+                .clickDropdownPageLink()
+                .chooseOption1FromDropdownACTIONS()
+                .isOption1Selected();
+
+        Assert.assertTrue(isOption1Selected);
+    }
+
+    @Test
+    public void testOption2isSelectedJSEXECUTOR() {
+        boolean isOption2Selected = new WelcomePage(getDriver())
+                .clickDropdownPageLink()
+                .chooseOption2FromDropdownJSEXECUTOR()
+                .isOption2Selected();
+
+        Assert.assertTrue(isOption2Selected);
+    }
+
+    @Test
+    public void testOption2isSelectedSENDKEYS() {
+        boolean isOption2Selected = new WelcomePage(getDriver())
+                .clickDropdownPageLink()
+                .chooseOption2FromDropdownSENDKEYS()
+                .isOption2Selected();
+
+        Assert.assertTrue(isOption2Selected);
     }
 }

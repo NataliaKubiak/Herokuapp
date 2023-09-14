@@ -15,6 +15,8 @@ public class WelcomePage extends BasePage {
     private WebElement checkboxesPageLink;
     @FindBy(linkText = "Dropdown")
     private WebElement dropdownPageLink;
+    @FindBy(linkText = "Drag and Drop")
+    private WebElement dragAndDropPageLink;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
@@ -38,5 +40,10 @@ public class WelcomePage extends BasePage {
     public DropdownPage clickDropdownPageLink() {
         dropdownPageLink.click();
         return new DropdownPage(getDriver());
+    }
+
+    public DragAndDropPage clickDragAndDropPageLink() {
+        dragAndDropPageLink.click();
+        return new DragAndDropPage(getDriver());
     }
 }
