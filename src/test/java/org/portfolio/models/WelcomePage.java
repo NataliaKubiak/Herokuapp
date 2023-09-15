@@ -17,6 +17,10 @@ public class WelcomePage extends BasePage {
     private WebElement dropdownPageLink;
     @FindBy(linkText = "Drag and Drop")
     private WebElement dragAndDropPageLink;
+    @FindBy(linkText = "Horizontal Slider")
+    private WebElement horizontalSliderPageLink;
+    @FindBy(linkText = "Inputs")
+    private WebElement inputsPageLink;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
@@ -45,5 +49,15 @@ public class WelcomePage extends BasePage {
     public DragAndDropPage clickDragAndDropPageLink() {
         dragAndDropPageLink.click();
         return new DragAndDropPage(getDriver());
+    }
+
+    public HorizontalSliderPage clickHorizontalSliderPageLink() {
+        horizontalSliderPageLink.click();
+        return new HorizontalSliderPage(getDriver());
+    }
+
+    public InputsPage clickInputsPageLink() {
+        inputsPageLink.click();
+        return new InputsPage(getDriver());
     }
 }
