@@ -21,6 +21,8 @@ public class WelcomePage extends BasePage {
     private WebElement horizontalSliderPageLink;
     @FindBy(linkText = "Inputs")
     private WebElement inputsPageLink;
+    @FindBy(linkText = "Key Presses")
+    private WebElement keyPressesPageLink;
 
     public WelcomePage(WebDriver driver) {
         super(driver);
@@ -59,5 +61,10 @@ public class WelcomePage extends BasePage {
     public InputsPage clickInputsPageLink() {
         inputsPageLink.click();
         return new InputsPage(getDriver());
+    }
+
+    public KeyPressesPage clickKeyPressesPageLink() {
+        keyPressesPageLink.click();
+        return new KeyPressesPage(getDriver());
     }
 }
