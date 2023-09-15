@@ -32,7 +32,7 @@ public class HorizontalSliderTest extends BaseTest {
         String value = new WelcomePage(getDriver())
                 .clickHorizontalSliderPageLink()
                 .moveSliderWithRightArrowButton()
-                .getSliderNumber();
+                .getSliderNumberWithVALUE();
 
         Assert.assertEquals(value, "3.5");
     }

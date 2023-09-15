@@ -27,6 +27,10 @@ public class HorizontalSliderPage extends BasePage {
         return sliderNumber.getText();
     }
 
+    public String getSliderNumberWithVALUE() {
+        return slider.getAttribute("value");
+    }
+
     public HorizontalSliderPage moveSliderToTheRightSide() {
         Actions actions = new Actions(getDriver());
         actions.clickAndHold(slider)
