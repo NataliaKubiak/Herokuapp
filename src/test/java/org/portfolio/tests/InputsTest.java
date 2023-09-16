@@ -2,9 +2,12 @@ package org.portfolio.tests;
 
 import org.portfolio.models.WelcomePage;
 import org.portfolio.tests.base.BaseTest;
+import org.portfolio.tests.testData.TestData;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 public class InputsTest extends BaseTest {
 
@@ -14,6 +17,13 @@ public class InputsTest extends BaseTest {
                 {"1"}, {"2"}, {"3"}, {"4"}, {"5"},
                 {"6"}, {"7"}, {"8"}, {"9"}
         };
+    }
+
+    @DataProvider(name = "allowedSymbolExcel")
+    public Object[][] provideAllowedSymbolExcel() throws IOException {
+        TestData testData = new TestData();
+
+        return testData.retrieveTestData();
     }
 
     @DataProvider(name = "notAllowedSymbol")
@@ -34,6 +44,16 @@ public class InputsTest extends BaseTest {
                 .getInputValue();
 
         Assert.assertEquals(actualValue, allowedSymbol);
+    }
+
+    @Test(dataProvider = "allowedSymbolExcel")
+    public void testInsertAllowedSymbolExcel(String allowedSymbolExcel) {
+        String actualValue = new WelcomePage(getDriver())
+                .clickInputsPageLink()
+                .insertNumberInInputRow(allowedSymbolExcel)
+                .getInputValue();
+
+        Assert.assertEquals(actualValue, allowedSymbolExcel);
     }
 
     @Test(dataProvider = "notAllowedSymbol")
